@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Detector de fraude</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <div class="card">
+        <div class="header">
+            <div class="icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none"
+                     stroke="#3b82f6"
+                     stroke-width="2"
+                     stroke-linecap="round"
+                     stroke-linejoin="round">
+                    <path d="M12 3l7 3v6c0 4.5-3 8.25-7 9-4-0.75-7-4.5-7-9V6l7-3z"></path>
+                    <path d="M9 12l2 2 4-4"></path>
+                </svg>
+            </div>
+            <div>
+                <h1>Detector de fraude</h1>
+                <p>Análisis de transacciones en tiempo real</p>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="row">
+            <div class="field">
+                <label for="tipo">Tipo de transacción</label>
+                <select id="tipo">
+                    <option value="PAYMENT">Pago</option>
+                    <option value="TRANSFER">Transferencia</option>
+                    <option value="CASH_OUT">Retiro de efectivo</option>
+                    <option value="CASH_IN">Depósito</option>
+                    <option value="DEBIT">Débito</option>
+                </select>
+            </div>
+            <div class="field">
+                <label for="monto">Monto (S/)</label>
+                <input
+                    type="number"
+                    id="monto"
+                    value="1000.00"
+                    step="0.01">
+            </div>
+        </div>
+        <p class="section-label">Cuenta origen</p>
+        <div class="row">
+            <div class="field">
+                <label for="saldo_ant_origen">Saldo anterior</label>
+                <input
+                    type="number"
+                    id="saldo_ant_origen"
+                    value="100.00"
+                    step="0.01">
+            </div>
+            <div class="field">
+                <label for="saldo_nuevo_origen">Saldo nuevo</label>
+                <input
+                    type="number"
+                    id="saldo_nuevo_origen"
+                    value="9000.00"
+                    step="0.01">
+            </div>
+        </div>
+        <p class="section-label">Cuenta destino</p>
+        <div class="row">
+            <div class="field">
+                <label for="saldo_ant_destino">Saldo anterior</label>
+                <input
+                    type="number"
+                    id="saldo_ant_destino"
+                    value="0.00"
+                    step="0.01">
+            </div>
+            <div class="field">
+                <label for="saldo_nuevo_destino">Saldo nuevo</label>
+                <input
+                    type="number"
+                    id="saldo_nuevo_destino"
+                    value="1.25"
+                    step="0.01">
+            </div>
+        </div>
+        <button class="predict" id="btnPredict">
+            <svg viewBox="0 0 24 24"
+                 width="16"
+                 height="16"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="2"
+                 stroke-linecap="round"
+                 stroke-linejoin="round">
+                <circle cx="11" cy="11" r="7"></circle>
+                <path d="M21 21l-4.3-4.3"></path>
+            </svg>
+            Analizar transacción
+        </button>
+        <div class="result risk" id="resultBox" style="display: none;">
+            <div class="result-left">
+                <svg viewBox="0 0 24 24"
+                     width="18"
+                     height="18"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="2"
+                     stroke-linecap="round"
+                     stroke-linejoin="round">
+                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                    <line x1="12" y1="9" x2="12" y2="13"></line>
+                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+                <span id="resultText"></span>
+            </div>
+            <span class="result-score">94.2%</span>
+        </div>
+    </div>
+    <script src="../static/js/script.js"></script>
+</body>
+</html>

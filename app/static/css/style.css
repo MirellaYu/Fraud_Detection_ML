@@ -1,0 +1,200 @@
+:root {
+    --bg-page: #0d0f14;
+    --bg-card: #151822;
+    --bg-field: #1c202c;
+    --border: #2a2f3d;
+    --text-primary: #f2f3f5;
+    --text-secondary: #9aa1b1;
+    --text-muted: #6b7280;
+    --accent: #3b82f6;
+    --accent-text: #ffffff;
+    --danger-bg: #3a1a1c;
+    --danger-text: #f87171;
+    --danger-border: #5c2327;
+    --safe-bg: #12301f;
+    --safe-text: #4ade80;
+    --safe-border: #1f4d33;
+    --radius: 10px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg-page);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Helvetica, Arial, sans-serif;
+
+    display: flex;
+    justify-content: center;
+    padding: 40px 16px;
+}
+
+.card {
+    width: 100%;
+    max-width: 440px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.icon-wrap {
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius);
+    background: rgba(59, 130, 246, 0.15);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+.icon-wrap svg {
+    width: 20px;
+    height: 20px;
+}
+
+.header h1 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.header p {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin: 2px 0 0;
+}
+
+.divider {
+    border-top: 1px solid var(--border);
+    margin: 16px 0;
+}
+
+.section-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin: 18px 0 8px;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.field label {
+    display: block;
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+}
+
+.field select,
+.field input {
+    width: 100%;
+    height: 38px;
+
+    background: var(--bg-field);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    color: var(--text-primary);
+    padding: 0 12px;
+    font-size: 14px;
+
+    outline: none;
+}
+
+.field select:focus,
+.field input:focus {
+    border-color: var(--accent);
+}
+
+button.predict {
+    width: 100%;
+    height: 42px;
+
+    margin-top: 20px;
+
+    background: var(--accent);
+    color: var(--accent-text);
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    cursor: pointer;
+}
+
+button.predict:hover {
+    opacity: 0.92;
+}
+
+.result {
+    margin-top: 16px;
+    border-radius: var(--radius);
+    padding: 12px 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border: 1px solid transparent;
+}
+
+.result.risk {
+    background: var(--danger-bg);
+    border-color: var(--danger-border);
+}
+
+.result.safe {
+    background: var(--safe-bg);
+    border-color: var(--safe-border);
+}
+
+.result-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.result.risk .result-left,
+.result.risk .result-score {
+    color: var(--danger-text);
+}
+
+.result.safe .result-left,
+.result.safe .result-score {
+    color: var(--safe-text);
+}
+
+.result-score {
+    font-size: 13px;
+    font-weight: 600;
+}
