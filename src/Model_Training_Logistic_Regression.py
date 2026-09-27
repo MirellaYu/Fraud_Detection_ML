@@ -148,7 +148,6 @@ def plot_learning_curve(model, X, y, seed=42):
     plt.xlabel("Tamaño del conjunto de entrenamiento (TRAIN)")
     plt.ylabel("F1-macro")
     plt.ticklabel_format(style="plain", axis="x")
-    plt.ylim(0, 1.0)
 
     plt.legend()
     plt.grid(True)
